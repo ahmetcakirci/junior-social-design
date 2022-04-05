@@ -356,3 +356,65 @@ main .container .left .profile {
 	color: var(--color-dark);
 	margin-right: 1rem;
 }
+
+/* FEEDS */
+
+.middle .feeds .feed {
+	background-color: var(--color-white);
+	border-radius: var(--card-border-radius);
+	padding: var(--card-padding);
+	margin: 1rem 0;
+	font-size: 0.85rem;
+	line-height: 1.5;
+}
+
+.middle .feeds .feed .head {
+	display: flex;
+	justify-content: space-between;
+}
+
+.middle .feed .user {
+	display: flex;
+	gap: 1rem;
+}
+
+.middle .feed .photo {
+	border-radius: var(--card-border-radius);
+	overflow: hidden;
+	margin: 0.7rem 0;
+}
+
+.middle .feed .action-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.4rem;
+	margin: 0.6rem;
+}
+
+.middle .feed .liked-by {
+	display: flex;
+}
+
+.middle .feed .liked-by span {
+	width: 1.6rem;
+	height: 1.6rem;
+	border-radius: 50%;
+	overflow: hidden;
+	display: block;
+	outline: 2px solid var(--color-white) !important;
+	margin-left: -0.6rem;
+}
+
+.middle .feed .liked-by span:first-child {
+	margin-left: 0;
+}
+
+.middle .feed .liked-by p {
+	margin-left: 0.5rem;
+}
+
+.middle .feed .caption .hash-tag {
+	color: var(--color-primary);
+	font-weight: 600;
+}
