@@ -15,10 +15,11 @@ const messageSearchInput = document.querySelector('#message-search');
 // Theme Modal Elements //
 const themeModal = document.querySelector('.customize-theme');
 const fontSizes = document.querySelectorAll('.choose-size span');
+const colorPalette = document.querySelectorAll('.choose-color span');
 
 // HTML //
 const html = document.querySelector('html');
-let root = document.querySelector(':root');
+const root = document.querySelector(':root');
 
 // remove active class from all menu items //
 const removeActiveClassFromMenuItems = () => {
@@ -88,6 +89,7 @@ document.addEventListener('keydown', (e) => {
 });
 themeMenuItem.addEventListener('click', openThemeModal);
 
+// remove active class
 const removeActiveClassFromSizeSelectors = () => {
 	fontSizes.forEach((size) => {
 		size.classList.remove('active');
@@ -122,5 +124,34 @@ fontSizes.forEach((size) => {
 			fontSize = '22px';
 		}
 		html.style.fontSize = fontSize;
+	});
+});
+
+// remove active class
+const removeActiveClassFromColorPalette = () => {
+	colorPalette.forEach((color) => {
+		color.classList.remove('active');
+	});
+};
+
+// Change Primary Colors //
+colorPalette.forEach((color) => {
+	color.addEventListener('click', () => {
+		removeActiveClassFromColorPalette();
+		let primaryHue;
+		if (color.classList.contains('color-1')) {
+			primaryHue = 252;
+		} else if (color.classList.contains('color-2')) {
+			primaryHue = 52;
+		} else if (color.classList.contains('color-3')) {
+			primaryHue = 352;
+		} else if (color.classList.contains('color-4')) {
+			primaryHue = 152;
+		} else if (color.classList.contains('color-5')) {
+			primaryHue = 202;
+		}
+		color.classList.add('active');
+
+		root.style.setProperty('--primary-color-hue', primaryHue);
 	});
 });
