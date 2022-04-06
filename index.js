@@ -1,15 +1,19 @@
+// Sidebar items //
 const menuItems = document.querySelectorAll('.menu-item');
 const notificationPopup = document.querySelector('.notifications-popup');
 const notificationCount = document.querySelector(
 	'#notifications .notification-count'
 );
+const themeMenuItem = document.querySelector('#theme');
+const themeModal = document.querySelector('.customize-theme');
 
+// Message items //
 const messageNotifications = document.querySelector('#messages-notification');
 const messagesBox = document.querySelector('.messages');
 const message = document.querySelectorAll('.message');
 const messageSearchInput = document.querySelector('#message-search');
 
-// remove active class from all menu items
+// remove active class from all menu items //
 const removeActiveClassFromMenuItems = () => {
 	menuItems.forEach((item) => {
 		item.classList.remove('active');
@@ -17,7 +21,6 @@ const removeActiveClassFromMenuItems = () => {
 };
 
 // SIDEBAR //
-
 menuItems.forEach((item) => {
 	item.addEventListener('click', () => {
 		removeActiveClassFromMenuItems();
@@ -56,3 +59,22 @@ const searchMessage = (e) => {
 
 // Filter messages //
 messageSearchInput.addEventListener('keyup', searchMessage);
+
+// Theme Customization //
+
+// Open Modal //
+const openThemeModal = () => {
+	themeModal.style.display = 'grid';
+};
+
+// Close Modal //
+const closeThemeModal = (e) => {
+	if (e.target.classList.contains('customize-theme')) {
+		themeModal.style.display = 'none';
+	}
+};
+themeModal.addEventListener('click', closeThemeModal);
+document.addEventListener('keydown', (e) => {
+	if ((e.key = 'Escape')) themeModal.style.display = 'none';
+});
+themeMenuItem.addEventListener('click', openThemeModal);
